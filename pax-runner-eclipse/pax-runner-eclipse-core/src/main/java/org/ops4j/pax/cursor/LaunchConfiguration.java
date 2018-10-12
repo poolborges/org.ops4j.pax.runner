@@ -60,8 +60,12 @@ public class LaunchConfiguration extends AbstractPDELaunchConfiguration
     /**
      * Adds the plugin itself to the class path, so it can be found by the process started by PDE.
      *
+     * @param configuration
+     * @return 
+     * @throws org.eclipse.core.runtime.CoreException
      * @see AbstractPDELaunchConfiguration#getClasspath(ILaunchConfiguration)
      */
+    @Override
     public String[] getClasspath( final ILaunchConfiguration configuration )
         throws CoreException
     {
@@ -140,7 +144,11 @@ public class LaunchConfiguration extends AbstractPDELaunchConfiguration
 
     /**
      * Returns the list of arguments used to start Pax Runner.
+     * @param configuration
+     * @return 
+     * @throws org.eclipse.core.runtime.CoreException
      */
+    @Override
     public String[] getProgramArguments( final ILaunchConfiguration configuration )
         throws CoreException
     {
@@ -256,6 +264,17 @@ public class LaunchConfiguration extends AbstractPDELaunchConfiguration
                             {
                                 throw new PlatformException( "Problem starting platform", e );
                             }
+                        }
+
+                        public void exec(String[] vmOptions, 
+                                         String[] classpath, 
+                                         String mainClass, 
+                                         String[] programOptions, 
+                                         String javaHome, 
+                                         File workingDir, 
+                                         String[] environmentVariables) throws PlatformException 
+                        {
+                            exec(vmOptions,classpath,mainClass,programOptions,javaHome,workingDir);
                         }
                     }, configuration.getProgramArguments()
                     );

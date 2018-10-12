@@ -31,16 +31,17 @@
     <dependencies>
       <dependency>
         <groupId>org.eclipse.pde</groupId>
-        <artifactId>ui</artifactId>
-        <version>3.3.0-v20070608-1300</version>
-        <scope>provided</scope>
-        <exclusions>
-          <exclusion>
-            <groupId>org.apache</groupId>
-            <artifactId>ant</artifactId>
-          </exclusion>
-        </exclusions>
+        <artifactId>org.eclipse.pde.ui</artifactId>
+        <version>3.10.400</version>
+        <type>jar</type>
       </dependency>
+      <!--
+      <dependency>
+        <groupId>org.eclipse.platform</groupId>
+        <artifactId>org.eclipse.equinox.launcher.cocoa.macosx.x86_64</artifactId>
+        <version>1.1.800</version>
+      </dependency>
+      -->
     </dependencies>
   </dependencyManagement>
 
